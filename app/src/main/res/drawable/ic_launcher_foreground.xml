@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Converted from icon.svg (speech bubble + download arrow outline), inverted: white artwork on green. -->
+<!-- Converted from icon.svg (speech bubble + filled download arrow), inverted: white artwork on green. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
@@ -25,16 +25,18 @@
                 android:fillColor="#FFFFFF"
                 android:pathData="M180,180L214,208C238,228 274,228 298,208L332,180C342,180 350,188 350,198L350,240C350,252 340,262 328,262L204,262L174,286L178,262C169,262 162,254 162,244L162,198C162,188 170,180 180,180Z" />
 
-            <!-- arrow outline: green halo (same as icon background) so it stays readable over the bubble -->
+            <!-- arrow: green halo (same as icon background) so it stays separate from the bubble -->
             <path
+                android:fillColor="#3DDC84"
                 android:pathData="M240,80C240,71 247,64 256,64C265,64 272,71 272,80L272,152L288,136C294,130 304,130 310,136C316,142 316,152 310,158L267,201C261,207 251,207 245,201L202,158C196,152 196,142 202,136C208,130 218,130 224,136L240,152L240,80Z"
                 android:strokeColor="#3DDC84"
                 android:strokeLineCap="round"
                 android:strokeLineJoin="round"
                 android:strokeWidth="24" />
 
-            <!-- arrow outline -->
+            <!-- arrow, filled -->
             <path
+                android:fillColor="#FFFFFF"
                 android:pathData="M240,80C240,71 247,64 256,64C265,64 272,71 272,80L272,152L288,136C294,130 304,130 310,136C316,142 316,152 310,158L267,201C261,207 251,207 245,201L202,158C196,152 196,142 202,136C208,130 218,130 224,136L240,152L240,80Z"
                 android:strokeColor="#FFFFFF"
                 android:strokeLineCap="round"

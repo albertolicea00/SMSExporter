@@ -12,6 +12,8 @@ android {
         targetSdk 34
         versionCode 1
         versionName '1.0'
+        // the app only ships English and Spanish; drop the other locales bundled in Material/AppCompat
+        resourceConfigurations += ['en', 'es']
     }
 
     buildTypes {

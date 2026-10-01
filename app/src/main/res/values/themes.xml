@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.SmsExporter" parent="Theme.Material3.DayNight">
-        <item name="colorPrimary">#0284C7</item>
+        <item name="colorPrimary">@color/android_green</item>
+        <item name="colorOnPrimary">#00210E</item>
+        <item name="colorPrimaryContainer">#B7F5CF</item>
+        <item name="colorOnPrimaryContainer">#00210E</item>
+        <item name="colorSecondary">#4F6354</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#D1E8D5</item>
+        <item name="colorOnSecondaryContainer">#0C1F13</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="android:colorBackground">#FFFFFF</item>
+        <item name="colorOnSurface">#1B1B1B</item>
+        <item name="colorSurfaceVariant">#E4E4E4</item>
+        <item name="colorOnSurfaceVariant">#444746</item>
+        <item name="colorOutline">#747775</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="materialButtonStyle">@style/Widget.App.Button</item>
     </style>
 
@@ -16,9 +31,11 @@
 
     <style name="Widget.App.Button.Outlined" parent="Widget.Material3.Button.OutlinedButton">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.App.Square</item>
+        <item name="android:textColor">@color/green_text</item>
     </style>
 
     <style name="Widget.App.Button.Text" parent="Widget.Material3.Button.TextButton">
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.App.Square</item>
+        <item name="android:textColor">@color/green_text</item>
     </style>
 </resources>

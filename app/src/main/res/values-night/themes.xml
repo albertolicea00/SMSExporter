@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SmsExporter" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/android_green</item>
+        <item name="colorOnPrimary">#00391C</item>
+        <item name="colorPrimaryContainer">#00522B</item>
+        <item name="colorOnPrimaryContainer">#B7F5CF</item>
+        <item name="colorSecondary">#B5CCB9</item>
+        <item name="colorOnSecondary">#213527</item>
+        <item name="colorSecondaryContainer">#374B3D</item>
+        <item name="colorOnSecondaryContainer">#D1E8D5</item>
+        <item name="colorSurface">#000000</item>
+        <item name="android:colorBackground">#000000</item>
+        <item name="colorOnSurface">#E3E3E3</item>
+        <item name="colorSurfaceVariant">#2B2B2B</item>
+        <item name="colorOnSurfaceVariant">#C4C7C5</item>
+        <item name="colorOutline">#8E918F</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+    </style>
+</resources>

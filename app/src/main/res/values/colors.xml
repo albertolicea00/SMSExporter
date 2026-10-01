@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android brand green -->
+    <color name="android_green">#3DDC84</color>
+    <!-- Green dark enough to read as text on a light surface (android_green is ~1.7:1 on white) -->
+    <color name="green_text">#0B6B36</color>
+</resources>

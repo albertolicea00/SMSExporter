@@ -20,6 +20,9 @@
     <string name="fields_title">Campos a exportar y su nombre (label)</string>
     <string name="struct_title">Nombres de estructura (JSON / XML)</string>
     <string name="label_hint">label</string>
+    <string name="advanced_closed">Ajustes avanzados  ▸</string>
+    <string name="advanced_open">Ajustes avanzados  ▾</string>
+    <string name="more_fields_title">Más campos y su nombre (label)</string>
     <string name="reset_labels">Restaurar nombres</string>
     <string name="export">Exportar</string>
     <string name="cancel">Cancelar</string>
@@ -40,7 +43,7 @@
     <string name="f_address">Número / remitente</string>
     <string name="f_contact_name">Nombre del contacto</string>
     <string name="f_body">Texto del mensaje</string>
-    <string name="f_date">Fecha (con el formato de arriba)</string>
+    <string name="f_date">Fecha (formato en Ajustes avanzados)</string>
     <string name="f_date_ms">Fecha en milisegundos (epoch)</string>
     <string name="f_date_sent">Fecha de envío</string>
     <string name="f_direction">Dirección (received / sent / …)</string>

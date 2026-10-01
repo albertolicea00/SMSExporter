@@ -13,12 +13,15 @@ public final class SmsField {
     public final Kind kind;
     public final int descRes;
     public final boolean defaultOn;
+    /** Hidden under "Ajustes avanzados" in the UI; the common fields are the ones on by default. */
+    public final boolean advanced;
 
     private SmsField(String key, Kind kind, int descRes, boolean defaultOn) {
         this.key = key;
         this.kind = kind;
         this.descRes = descRes;
         this.defaultOn = defaultOn;
+        this.advanced = !defaultOn;
     }
 
     public static final List<SmsField> ALL = Collections.unmodifiableList(Arrays.asList(

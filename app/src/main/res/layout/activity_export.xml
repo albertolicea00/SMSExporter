@@ -60,26 +60,6 @@
             android:layout_height="wrap_content"
             android:text="@string/per_chat" />
 
-        <CheckBox
-            android:id="@+id/json_flat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/json_flat" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/date_pattern"
-            android:textAppearance="?attr/textAppearanceLabelLarge" />
-
-        <EditText
-            android:id="@+id/date_pattern"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:inputType="textNoSuggestions"
-            android:maxLines="1" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,26 +74,78 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/struct_title"
-            android:textAppearance="?attr/textAppearanceLabelLarge" />
-
-        <LinearLayout
-            android:id="@+id/structure"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
 
         <Button
-            android:id="@+id/reset"
+            android:id="@+id/advanced_toggle"
             style="@style/Widget.App.Button.Text"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/reset_labels" />
+            android:gravity="start|center_vertical"
+            android:text="@string/advanced_closed" />
+
+        <LinearLayout
+            android:id="@+id/advanced"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/json_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/json_flat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/date_pattern"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <EditText
+                android:id="@+id/date_pattern"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:importantForAutofill="no"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/more_fields_title"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <LinearLayout
+                android:id="@+id/fields_advanced"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/struct_title"
+                android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+            <LinearLayout
+                android:id="@+id/structure"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/reset"
+                style="@style/Widget.App.Button.Text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/reset_labels" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/export"

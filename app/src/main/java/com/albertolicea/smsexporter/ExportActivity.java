@@ -44,6 +44,9 @@ public class ExportActivity extends AppCompatActivity {
     private View progressBox;
     private ProgressBar progress;
     private TextView progressText, result;
+    private View advanced;
+    private Button advancedToggle;
+    private boolean errorInAdvanced;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -76,8 +79,14 @@ public class ExportActivity extends AppCompatActivity {
         result = findViewById(R.id.result);
 
         LayoutInflater inf = LayoutInflater.from(this);
-        android.view.ViewGroup fields = findViewById(R.id.fields);
+        advanced = findViewById(R.id.advanced);
+        advancedToggle = findViewById(R.id.advanced_toggle);
+        advancedToggle.setOnClickListener(v -> setAdvancedOpen(advanced.getVisibility() != View.VISIBLE));
+
+        android.view.ViewGroup fieldsMain = findViewById(R.id.fields);
+        android.view.ViewGroup fieldsAdvanced = findViewById(R.id.fields_advanced);
         for (SmsField f : SmsField.ALL) {
+            android.view.ViewGroup fields = f.advanced ? fieldsAdvanced : fieldsMain;
             View row = inf.inflate(R.layout.row_field, fields, false);
             CheckBox cb = row.findViewById(R.id.check);
             cb.setText(f.descRes);
@@ -148,12 +157,18 @@ public class ExportActivity extends AppCompatActivity {
         return "json";
     }
 
+    private void setAdvancedOpen(boolean open) {
+        advanced.setVisibility(open ? View.VISIBLE : View.GONE);
+        advancedToggle.setText(open ? R.string.advanced_open : R.string.advanced_closed);
+    }
+
     private void updateVisibility() {
         jsonFlat.setVisibility("json".equals(formatKey()) ? View.VISIBLE : View.GONE);
     }
 
     /** Copies the form into {@link #settings}; returns an error string or null. */
     private String readForm() {
+        errorInAdvanced = false;
         settings.format = formatKey();
         settings.perChat = chats.size() > 1 && perChat.isChecked();
         settings.jsonFlat = jsonFlat.isChecked();
@@ -162,6 +177,7 @@ public class ExportActivity extends AppCompatActivity {
             if (settings.datePattern.isEmpty()) throw new IllegalArgumentException();
             new SimpleDateFormat(settings.datePattern);
         } catch (IllegalArgumentException e) {
+            errorInAdvanced = true;
             return getString(R.string.err_date_pattern);
         }
 
@@ -172,13 +188,16 @@ public class ExportActivity extends AppCompatActivity {
             settings.enabled.put(f.key, on);
             settings.labels.put(f.key, label);
             if (on) {
+                errorInAdvanced = f.advanced;
                 if (label.isEmpty()) return getString(R.string.err_empty_label);
                 if (!seen.add(label)) return getString(R.string.err_dup_label, label);
             }
         }
+        errorInAdvanced = false;
         if (seen.isEmpty()) return getString(R.string.err_no_fields);
 
         // keys that share one JSON object (the chat header) must differ
+        errorInAdvanced = true;
         Set<String> chatKeys = new HashSet<>();
         for (String k : ExportSettings.STRUCT_KEYS) {
             String label = structLabels.get(k).getText().toString().trim();
@@ -187,6 +206,7 @@ public class ExportActivity extends AppCompatActivity {
             if (!k.equals("chats") && !chatKeys.add(label)) return getString(R.string.err_dup_label, label);
         }
 
+        errorInAdvanced = false;
         if (settings.format.equals("csv") && chats.size() > 1 && !settings.perChat
                 && !settings.enabled.get("thread_id") && !settings.enabled.get("address")) {
             return getString(R.string.err_csv_multi);
@@ -197,6 +217,7 @@ public class ExportActivity extends AppCompatActivity {
     private void startExport() {
         String err = readForm();
         if (err != null) {
+            if (errorInAdvanced) setAdvancedOpen(true);
             Toast.makeText(this, err, Toast.LENGTH_LONG).show();
             return;
         }

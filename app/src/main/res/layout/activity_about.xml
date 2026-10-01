@@ -70,12 +70,24 @@
             style="@style/AboutSectionBody"
             android:text="@string/about_limits" />
 
-        <Button
-            android:id="@+id/check_updates"
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/check_updates" />
+            android:layout_marginTop="28dp">
+
+            <Button
+                android:id="@+id/check_updates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/check_updates" />
+
+            <ProgressBar
+                android:id="@+id/check_updates_progress"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
 
         <TextView
             style="@style/AboutSectionBody"

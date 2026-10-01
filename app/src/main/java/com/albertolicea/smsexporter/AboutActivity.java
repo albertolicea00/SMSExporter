@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,9 @@ public class AboutActivity extends AppCompatActivity {
     private static final String REPO_URL = "https://github.com/" + GITHUB_USER + "/SMSExporter";
 
     private final ExecutorService io = Executors.newSingleThreadExecutor();
+
+    private Button checkUpdatesBtn;
+    private ProgressBar checkUpdatesProgress;
 
     @Override
     protected void onCreate(Bundle b) {
@@ -41,16 +46,23 @@ public class AboutActivity extends AppCompatActivity {
         TextView creator = findViewById(R.id.creator);
         creator.setText(getString(R.string.created_by, "@" + GITHUB_USER));
         creator.setOnClickListener(v -> open("https://github.com/" + GITHUB_USER));
-        findViewById(R.id.check_updates).setOnClickListener(v -> checkForUpdate());
+        checkUpdatesBtn = findViewById(R.id.check_updates);
+        checkUpdatesProgress = findViewById(R.id.check_updates_progress);
+        checkUpdatesBtn.setOnClickListener(v -> checkForUpdate());
         findViewById(R.id.view_source).setOnClickListener(v -> open(REPO_URL));
     }
 
     private void checkForUpdate() {
-        Toast.makeText(this, R.string.checking_updates, Toast.LENGTH_SHORT).show();
+        checkUpdatesBtn.setEnabled(false);
+        checkUpdatesBtn.setText(R.string.checking_updates);
+        checkUpdatesProgress.setVisibility(android.view.View.VISIBLE);
         io.execute(() -> {
             UpdateChecker.UpdateInfo info = UpdateChecker.fetchLatestIfNewer(BuildConfig.VERSION_NAME);
             runOnUiThread(() -> {
                 if (isFinishing() || isDestroyed()) return;
+                checkUpdatesBtn.setEnabled(true);
+                checkUpdatesBtn.setText(R.string.check_updates);
+                checkUpdatesProgress.setVisibility(android.view.View.GONE);
                 if (info != null) showUpdateDialog(info);
                 else Toast.makeText(this, R.string.up_to_date, Toast.LENGTH_SHORT).show();
             });

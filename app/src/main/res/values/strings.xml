@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SMS Exporter</string>
+    <string name="app_name" translatable="false">SMS Exporter</string>
 
     <string name="perm_needed">Permission to read your SMS is required.</string>
     <string name="grant">Grant permission</string>

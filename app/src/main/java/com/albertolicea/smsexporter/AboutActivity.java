@@ -10,12 +10,18 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class AboutActivity extends AppCompatActivity {
 
     private static final String GITHUB_USER = "albertolicea00";
     private static final String REPO_URL = "https://github.com/" + GITHUB_USER + "/SMSExporter";
+
+    private final ExecutorService io = Executors.newSingleThreadExecutor();
 
     @Override
     protected void onCreate(Bundle b) {
@@ -35,8 +41,35 @@ public class AboutActivity extends AppCompatActivity {
         TextView creator = findViewById(R.id.creator);
         creator.setText(getString(R.string.created_by, "@" + GITHUB_USER));
         creator.setOnClickListener(v -> open("https://github.com/" + GITHUB_USER));
-        findViewById(R.id.check_updates).setOnClickListener(v -> open(REPO_URL + "/releases"));
+        findViewById(R.id.check_updates).setOnClickListener(v -> checkForUpdate());
         findViewById(R.id.view_source).setOnClickListener(v -> open(REPO_URL));
+    }
+
+    private void checkForUpdate() {
+        Toast.makeText(this, R.string.checking_updates, Toast.LENGTH_SHORT).show();
+        io.execute(() -> {
+            UpdateChecker.UpdateInfo info = UpdateChecker.fetchLatestIfNewer(BuildConfig.VERSION_NAME);
+            runOnUiThread(() -> {
+                if (isFinishing() || isDestroyed()) return;
+                if (info != null) showUpdateDialog(info);
+                else Toast.makeText(this, R.string.up_to_date, Toast.LENGTH_SHORT).show();
+            });
+        });
+    }
+
+    private void showUpdateDialog(UpdateChecker.UpdateInfo info) {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.update_available_title)
+                .setMessage(getString(R.string.update_available_msg, info.version, BuildConfig.VERSION_NAME))
+                .setPositiveButton(R.string.download, (d, w) -> open(info.url))
+                .setNegativeButton(R.string.later, null)
+                .show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        io.shutdownNow();
     }
 
     @Override

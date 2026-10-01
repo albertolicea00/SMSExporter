@@ -31,7 +31,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
-            outputFileName = "sms-exporter-v${variant.versionName}-${variant.buildType.name}.apk"
+            outputFileName = "sms-exporter-v${variant.versionName}.apk"
         }
     }
 }

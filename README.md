@@ -1,4 +1,4 @@
-# 📱 SMS Exporter
+# SMS Exporter 2 JSON, CSV, TXT, or XML
 
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
 ![Min SDK](https://img.shields.io/badge/minSdk-29-blue)
@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Offline](https://img.shields.io/badge/network-offline--only-success)
 
-Android app to export your SMS conversations to Selecter **JSON, CSV, TXT, or XML** — entirely on-device, with full control over which fields to include and how they're labeled.
+Android app to export your SMS conversations; entirely on-device, with full control over which fields to include and how they're labeled.
 
 ## ✨ Features
 

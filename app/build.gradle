@@ -2,6 +2,12 @@ plugins {
     id 'com.android.application'
 }
 
+def releasePropsFile = rootProject.file('keys/release.properties')
+def releaseProps = new Properties()
+if (releasePropsFile.exists()) {
+    releasePropsFile.withInputStream { releaseProps.load(it) }
+}
+
 android {
     namespace 'com.albertolicea.smsexporter'
     compileSdk 34
@@ -16,11 +22,21 @@ android {
         resourceConfigurations += ['en', 'es']
     }
 
+    signingConfigs {
+        release {
+            storeFile rootProject.file('keys/release.jks')
+            storePassword releaseProps.getProperty('storePassword')
+            keyAlias releaseProps.getProperty('keyAlias', 'albertolicea00')
+            keyPassword releaseProps.getProperty('keyPassword')
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 

@@ -7,3 +7,4 @@ local.properties
 captures/
 .env
 *.jks
+keys/release.properties

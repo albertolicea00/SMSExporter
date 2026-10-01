@@ -88,6 +88,9 @@ public class ExportActivity extends AppCompatActivity {
         for (SmsField f : SmsField.ALL) {
             android.view.ViewGroup fields = f.advanced ? fieldsAdvanced : fieldsMain;
             View row = inf.inflate(R.layout.row_field, fields, false);
+            // every row reuses the same view ids, so Android's id-based state restore would
+            // copy one row's value into all of them; apply() reloads from settings instead
+            row.setSaveFromParentEnabled(false);
             CheckBox cb = row.findViewById(R.id.check);
             cb.setText(f.descRes);
             EditText et = row.findViewById(R.id.label);
@@ -98,6 +101,7 @@ public class ExportActivity extends AppCompatActivity {
         android.view.ViewGroup structure = findViewById(R.id.structure);
         for (int i = 0; i < ExportSettings.STRUCT_KEYS.length; i++) {
             View row = inf.inflate(R.layout.row_field, structure, false);
+            row.setSaveFromParentEnabled(false);
             row.findViewById(R.id.check).setVisibility(View.GONE);
             TextView tv = row.findViewById(R.id.text);
             tv.setVisibility(View.VISIBLE);

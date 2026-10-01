@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 final class UpdateChecker {
 
@@ -77,6 +78,6 @@ final class UpdateChecker {
         byte[] buf = new byte[4096];
         int n;
         while ((n = is.read(buf)) != -1) bos.write(buf, 0, n);
-        return bos.toString("UTF-8");
+        return bos.toString(StandardCharsets.UTF_8.name());
     }
 }

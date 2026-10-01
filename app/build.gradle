@@ -16,8 +16,8 @@ android {
         applicationId 'com.albertolicea.smsexporter'
         minSdk 29
         targetSdk 34
-        versionCode 1
-        versionName '1.0'
+        versionCode 2
+        versionName '1.1'
         // the app only ships English and Spanish; drop the other locales bundled in Material/AppCompat
         resourceConfigurations += ['en', 'es']
     }
@@ -45,9 +45,26 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
 
+    buildFeatures {
+        buildConfig true
+    }
+
     applicationVariants.all { variant ->
         variant.outputs.all { output ->
             outputFileName = "sms-exporter-v${variant.versionName}.apk"
+        }
+        variant.assembleProvider.get().doLast {
+            variant.outputs.all { output ->
+                def apkFile = output.outputFile
+                if (apkFile.exists()) {
+                    def sha256 = java.security.MessageDigest.getInstance('SHA-256')
+                        .digest(apkFile.bytes)
+                        .collect { String.format('%02x', it) }
+                        .join()
+                    new File(apkFile.parentFile, "${apkFile.name}.sha256")
+                        .text = "${sha256}  ${apkFile.name}\n"
+                }
+            }
         }
     }
 }

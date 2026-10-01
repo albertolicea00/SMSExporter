@@ -9,12 +9,14 @@
     <string name="next_n">Continuar (%d)</string>
     <plurals name="msgs_n">
         <item quantity="one">%d mensaje</item>
+        <item quantity="many">%d mensajes</item>
         <item quantity="other">%d mensajes</item>
     </plurals>
 
     <string name="title_export">Opciones de exportación</string>
     <plurals name="chats_selected">
         <item quantity="one">%d chat seleccionado</item>
+        <item quantity="many">%d chats seleccionados</item>
         <item quantity="other">%d chats seleccionados</item>
     </plurals>
     <string name="format">Formato</string>
@@ -40,6 +42,7 @@
     <string name="exporting">Exportando…</string>
     <plurals name="done_n">
         <item quantity="one">Listo: %1$d archivo en Descargas/%2$s</item>
+        <item quantity="many">Listo: %1$d archivos en Descargas/%2$s</item>
         <item quantity="other">Listo: %1$d archivos en Descargas/%2$s</item>
     </plurals>
     <string name="cancelled">Exportación cancelada.</string>

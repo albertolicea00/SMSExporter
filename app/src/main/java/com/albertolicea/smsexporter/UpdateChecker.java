@@ -78,6 +78,6 @@ final class UpdateChecker {
         byte[] buf = new byte[4096];
         int n;
         while ((n = is.read(buf)) != -1) bos.write(buf, 0, n);
-        return bos.toString(StandardCharsets.UTF_8.name());
+        return new String(bos.toByteArray(), StandardCharsets.UTF_8);
     }
 }

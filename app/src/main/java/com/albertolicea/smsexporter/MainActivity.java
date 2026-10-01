@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
             ChatInfo c = shown.get(position);
             h.title.setText(c.title());
             h.snippet.setText(c.snippet == null ? "" : c.snippet.replace('\n', ' '));
-            h.count.setText(getString(R.string.msgs_n, c.count));
+            h.count.setText(getResources().getQuantityString(R.plurals.msgs_n, c.count, c.count));
             h.date.setText(DateUtils.formatDateTime(MainActivity.this, c.lastDate,
                     DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH | DateUtils.FORMAT_SHOW_YEAR));
             h.check.setChecked(selected.contains(c.threadId));

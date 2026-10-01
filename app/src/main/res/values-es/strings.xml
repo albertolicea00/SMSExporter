@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="perm_needed">Se necesita permiso para leer los SMS.</string>
+    <string name="grant">Dar permiso</string>
+    <string name="loading">Cargando chats…</string>
+    <string name="no_chats">No hay SMS en este dispositivo.</string>
+    <string name="search_hint">Buscar chat o número</string>
+    <string name="select_all">Seleccionar todos</string>
+    <string name="next_n">Continuar (%d)</string>
+    <plurals name="msgs_n">
+        <item quantity="one">%d mensaje</item>
+        <item quantity="other">%d mensajes</item>
+    </plurals>
+
+    <string name="title_export">Opciones de exportación</string>
+    <plurals name="chats_selected">
+        <item quantity="one">%d chat seleccionado</item>
+        <item quantity="other">%d chats seleccionados</item>
+    </plurals>
+    <string name="format">Formato</string>
+    <string name="per_chat">Un archivo por chat</string>
+    <string name="json_flat">JSON: lista plana de mensajes (sin agrupar por chat)</string>
+    <string name="date_pattern">Formato de fecha (patrón de SimpleDateFormat)</string>
+    <string name="fields_title">Campos a exportar y su nombre (label)</string>
+    <string name="more_fields_title">Más campos y su nombre (label)</string>
+    <string name="struct_title">Nombres de estructura (JSON / XML)</string>
+    <string name="advanced_closed">Ajustes avanzados  ▸</string>
+    <string name="advanced_open">Ajustes avanzados  ▾</string>
+    <string name="label_hint">label</string>
+    <string name="reset_labels">Restaurar nombres</string>
+    <string name="export">Exportar</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="err_no_fields">Elige al menos un campo.</string>
+    <string name="err_empty_label">Hay un nombre vacío.</string>
+    <string name="err_dup_label">Nombre repetido: %s</string>
+    <string name="err_date_pattern">Patrón de fecha inválido.</string>
+    <string name="err_csv_multi">CSV con varios chats en un solo archivo: activa thread_id o address, o marca «Un archivo por chat».</string>
+    <string name="err_cache">Vuelve atrás y selecciona los chats otra vez.</string>
+    <string name="exporting">Exportando…</string>
+    <plurals name="done_n">
+        <item quantity="one">Listo: %1$d archivo en Descargas/%2$s</item>
+        <item quantity="other">Listo: %1$d archivos en Descargas/%2$s</item>
+    </plurals>
+    <string name="cancelled">Exportación cancelada.</string>
+    <string name="error_prefix">Error: %s</string>
+
+    <string name="f_id">ID del mensaje (_id)</string>
+    <string name="f_thread_id">ID del chat (thread_id)</string>
+    <string name="f_address">Número / remitente</string>
+    <string name="f_contact_name">Nombre del contacto</string>
+    <string name="f_body">Texto del mensaje</string>
+    <string name="f_date">Fecha (formato en Ajustes avanzados)</string>
+    <string name="f_date_ms">Fecha en milisegundos (epoch)</string>
+    <string name="f_date_sent">Fecha de envío</string>
+    <string name="f_direction">Dirección (received / sent / …)</string>
+    <string name="f_type">Tipo numérico (1 recibido, 2 enviado…)</string>
+    <string name="f_read">Leído (0/1)</string>
+    <string name="f_seen">Visto (0/1)</string>
+    <string name="f_locked">Bloqueado (0/1)</string>
+    <string name="f_status">Estado de entrega</string>
+    <string name="f_protocol">Protocolo</string>
+    <string name="f_subject">Asunto</string>
+    <string name="f_service_center">Centro de servicio</string>
+    <string name="f_sub_id">ID de SIM (sub_id)</string>
+
+    <string name="s_chats">Lista de chats</string>
+    <string name="s_messages">Lista de mensajes de cada chat</string>
+    <string name="s_chat_thread_id">ID del chat</string>
+    <string name="s_chat_address">Número del chat</string>
+    <string name="s_chat_name">Nombre del chat</string>
+</resources>

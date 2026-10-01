@@ -67,7 +67,7 @@ public class ExportActivity extends AppCompatActivity {
 
         settings = ExportSettings.load(this);
 
-        ((TextView) findViewById(R.id.summary)).setText(getString(R.string.chats_selected, chats.size()));
+        ((TextView) findViewById(R.id.summary)).setText(getResources().getQuantityString(R.plurals.chats_selected, chats.size(), chats.size()));
         format = findViewById(R.id.format);
         perChat = findViewById(R.id.per_chat);
         jsonFlat = findViewById(R.id.json_flat);
@@ -244,7 +244,7 @@ public class ExportActivity extends AppCompatActivity {
             @Override public void onDone(List<String> files) {
                 runOnUiThread(() -> {
                     finishUi();
-                    result.setText(getString(R.string.done_n, files.size(), ExportTask.FOLDER)
+                    result.setText(getResources().getQuantityString(R.plurals.done_n, files.size(), files.size(), ExportTask.FOLDER)
                             + "\n\n" + String.join("\n", files));
                 });
             }

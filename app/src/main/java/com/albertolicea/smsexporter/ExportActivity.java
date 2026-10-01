@@ -129,6 +129,21 @@ public class ExportActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(android.view.Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(android.view.MenuItem item) {
+        if (item.getItemId() == R.id.action_about) {
+            startActivity(new android.content.Intent(this, AboutActivity.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (isFinishing() && task != null) task.cancel();

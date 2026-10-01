@@ -42,4 +42,19 @@
         <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.App.Square</item>
         <item name="android:textColor">@color/green_text</item>
     </style>
+
+    <style name="AboutSectionTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceTitleSmall</item>
+        <item name="android:textColor">@color/green_text</item>
+    </style>
+
+    <style name="AboutSectionBody">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:textAppearance">?attr/textAppearanceBodyMedium</item>
+    </style>
 </resources>

@@ -71,4 +71,21 @@
     <string name="s_chat_thread_id">Chat ID</string>
     <string name="s_chat_address">Chat number</string>
     <string name="s_chat_name">Chat name</string>
+
+    <string name="about">About</string>
+    <string name="version_fmt">Version %1$s (build %2$d)</string>
+    <string name="about_desc">Export your SMS conversations to JSON, CSV, TXT or XML. Choose which message fields to include and name every label yourself.</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy">Everything happens on your device. The app has no internet permission, so your messages are never uploaded anywhere.</string>
+    <string name="about_perms_title">Permissions</string>
+    <string name="about_perms">SMS: required to read your messages.\nContacts (optional): only used to show contact names instead of numbers.</string>
+    <string name="about_files_title">Where are my files?</string>
+    <string name="about_files">Exports are saved in Downloads/SMS Export.</string>
+    <string name="about_limits_title">Limitations</string>
+    <string name="about_limits">Only SMS is exported. MMS and group conversations are not included.</string>
+    <string name="check_updates">Check for updates</string>
+    <string name="check_updates_hint">Opens the releases page in your browser. The app itself never goes online.</string>
+    <string name="view_source">View on GitHub</string>
+    <string name="created_by">Created by %s</string>
+    <string name="no_browser">No app available to open the link.</string>
 </resources>

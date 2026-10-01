@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@null"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/about_desc"
+            android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+        <TextView
+            style="@style/AboutSectionTitle"
+            android:text="@string/about_privacy_title" />
+
+        <TextView
+            style="@style/AboutSectionBody"
+            android:text="@string/about_privacy" />
+
+        <TextView
+            style="@style/AboutSectionTitle"
+            android:text="@string/about_perms_title" />
+
+        <TextView
+            style="@style/AboutSectionBody"
+            android:text="@string/about_perms" />
+
+        <TextView
+            style="@style/AboutSectionTitle"
+            android:text="@string/about_files_title" />
+
+        <TextView
+            style="@style/AboutSectionBody"
+            android:text="@string/about_files" />
+
+        <TextView
+            style="@style/AboutSectionTitle"
+            android:text="@string/about_limits_title" />
+
+        <TextView
+            style="@style/AboutSectionBody"
+            android:text="@string/about_limits" />
+
+        <Button
+            android:id="@+id/check_updates"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/check_updates" />
+
+        <TextView
+            style="@style/AboutSectionBody"
+            android:layout_marginTop="4dp"
+            android:text="@string/check_updates_hint"
+            android:textAppearance="?attr/textAppearanceBodySmall" />
+
+        <Button
+            android:id="@+id/view_source"
+            style="@style/Widget.App.Button.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/view_source" />
+
+        <TextView
+            android:id="@+id/creator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:padding="12dp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="@color/green_text" />
+    </LinearLayout>
+</ScrollView>
